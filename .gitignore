@@ -1,0 +1,26 @@
+# --- Arquivos Compilados (Objetos) ---
+*.o
+*.obj
+
+# --- Executáveis e Binários ---
+*.exe
+*.dll
+*.so
+*.out
+*.app
+
+# Executável específico mencionado no README
+sortapp
+
+# --- Dev-C++ (Arquivos gerados pela IDE) ---
+# O arquivo .dev DEVE subir, mas o layout e makefile gerado não
+*.layout
+Makefile.win
+
+# --- Arquivos de Sistema Operacional ---
+.DS_Store
+Thumbs.db
+
+# --- Logs e Arquivos Temporários ---
+*.log
+*.tmp
