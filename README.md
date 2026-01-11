@@ -1,4 +1,4 @@
-# 🧮 C Sorting Algorithms Collection
+# 🧮 Coleção completa de Algoritmos de Ordenação em C
 
 ![Language](https://img.shields.io/badge/language-C11-blue?style=for-the-badge&logo=c)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
