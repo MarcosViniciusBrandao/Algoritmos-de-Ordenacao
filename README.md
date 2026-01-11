@@ -2,7 +2,6 @@
 
 ![Language](https://img.shields.io/badge/language-C11-blue?style=for-the-badge&logo=c)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-Completed-success?style=for-the-badge)
 ![Contributions](https://img.shields.io/badge/contributions-welcome-orange?style=for-the-badge)
 
 ## 📖 Sobre o Projeto
@@ -77,22 +76,46 @@ Ordena inteiros processando dígitos individuais. As chaves são processadas por
 ## 💻 Como Compilar e Rodar
 
 ### Pré-requisitos
-Você precisará de um compilador C, como o **GCC**. Eu uso e recomendo o Dev-C++.
+Você precisará de um compilador C, como o **GCC** ou  utlizar uma IDE.
 
-### Compilando via Terminal
+### 🛠️ Opção 1: Utilizando IDEs
 
-1.  Clone o repositório:
+#### **Dev-C++** (Recomendado)
+O projeto já inclui o arquivo de configuração `.dev`.
+1.  Navegue até a pasta do projeto.
+2.  Dê um duplo clique no arquivo **`Ordenacao.dev`**.
+3.  Com o projeto aberto, pressione **F11** (ou vá no menu *Execute > Compile & Run*).
+
+#### **VS Code**
+Como o projeto possui múltiplos arquivos (`main.c` e `sort.c`), você precisa informar ao compilador para unir os dois.
+1.  Abra a pasta do projeto no VS Code (`File > Open Folder`).
+2.  Abra o terminal integrado (`Ctrl + '`).
+3.  Digite o comando abaixo para compilar:
+    ```bash
+    gcc main.c sort.c -o sortapp
+    ```
+4.  Execute o programa gerado:
+    ```bash
+    ./sortapp   # Linux/Mac
+    sortapp.exe # Windows
+    ```
+
+### ⌨️ Opção 2: Via Terminal (Manual)
+
+Se você não utiliza IDE e prefere apenas a linha de comando com GCC:
+
+1.  **Clone o repositório:**
     ```bash
     git clone https://github.com/MarcosViniciusBrandao/Algoritmos-de-Ordenacao.git
     cd Algoritmos-de-Ordenacao
     ```
 
-2.  Compile os arquivos:
+2.  **Compile os arquivos:**
     ```bash
     gcc main.c sort.c -o sortapp
     ```
 
-3.  Execute o programa:
+3.  **Execute o programa:**
     * **Windows:**
         ```bash
         sortapp.exe
