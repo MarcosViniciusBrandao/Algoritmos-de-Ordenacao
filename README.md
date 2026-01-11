@@ -1,7 +1,7 @@
 # 🧮 C Sorting Algorithms Collection
 
-![Language](https://img.shields.io/badge/language-C-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+![Linguagem](https://img.shields.io/badge/language-C-blue)
+![Licença](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-Completed-success)
 
 ## 📖 Sobre o Projeto
@@ -38,8 +38,8 @@ Um guia rápido para entender a eficiência de cada algoritmo implementado neste
 
 Para facilitar seus estudos, o código foi organizado da seguinte forma:
 
-* **`src/sort.c`**: 🧠 **Onde a mágica acontece!** Este arquivo contém toda a lógica e implementação dos algoritmos de ordenação listados acima. Se você quer estudar o código, comece por aqui.
-* **`src/sort.h`**: Arquivo de cabeçalho que define as assinaturas das funções.
+* **`sort.c`**: 🧠 **Onde a mágica acontece!** Este arquivo contém toda a lógica e implementação dos algoritmos de ordenação listados acima. Se você quer estudar o código, comece por aqui.
+* **`sort.h`**: Arquivo de cabeçalho que define as assinaturas das funções.
 * **`main.c`**: Interface de menu para executar e testar os algoritmos no terminal.
 
 ---
@@ -55,6 +55,6 @@ Necessário ter o compilador **GCC** instalado.
    ```bash
    git clone https://github.com/MarcosViniciusBrandao/Algoritmos-de-Ordenacao.git
    cd Algoritmos-de-Ordenacao
-   gcc main.c src/sort.c -o sortapp
+   gcc main.c sort.c -o sortapp
    ./sortapp -> para Linux/Mac
    sortapp.exe -> para Windows
