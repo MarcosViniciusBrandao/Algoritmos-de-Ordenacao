@@ -31,7 +31,7 @@ void insertionSort(int* vet, int tam){
     int i, j, aux;
     for(i = 1;i < tam;i++){
         aux = vet[i];
-        for(j = i-1;j >= 0 && aux < vet[j];j++){
+        for(j = i-1;j >= 0 && aux < vet[j];j--){
             vet[j+1] = vet[j];
         }
         vet[j+1] = aux;
