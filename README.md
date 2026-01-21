@@ -12,25 +12,39 @@ O objetivo principal é servir como material de estudo para estudantes de Ciênc
 * Análise de complexidade (Notação Big O).
 * Manipulação eficiente de memória e ponteiros.
 * Comparação prática de desempenho entre algoritmos $O(n^2)$ e $O(n \log n)$.
+* Entendimento de estabilidade nos algoritmos.
 
 O código foi estruturado de forma modular, separando a interface (`.h`), a implementação (`.c`) e o programa de teste (`main.c`), seguindo as boas práticas de engenharia de software.
 
 ---
 
-## 📊 Comparativo de Complexidade
+## ⚖️ O que é Estabilidade?
 
-Abaixo, uma tabela detalhada comparando o desempenho de tempo e o custo de memória de cada algoritmo implementado.
+Um algoritmo de ordenação é considerado **estável** quando ele preserva a ordem relativa original de elementos que possuem chaves (valores) iguais.
 
-| Algoritmo | Melhor Caso (Time) | Médio (Time) | Pior Caso (Time) | Memória (Space) | Quando Utilizar? |
-| :--- | :---: | :---: | :---: | :---: | :--- |
-| **Selection Sort** | $O(n^2)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | Útil quando a memória auxiliar é muito limitada e o custo de *swap* é alto. |
-| **Insertion Sort** | $O(n)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | Excelente para arrays pequenos ou **quase ordenados**. |
-| **Bubble Sort** | $O(n)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | Apenas para fins didáticos (simples de implementar). |
-| **Merge Sort** | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ | $O(n)$ | Grandes volumes de dados onde a estabilidade é necessária (mantém ordem de iguais). |
-| **Heap Sort** | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ | $O(1)$ | Quando se deseja performance $O(n \log n)$ sem gastar memória extra (*In-Place*). |
-| **Quick Sort** | $O(n \log n)$ | $O(n \log n)$ | $O(n^2)$ | $O(\log n)$ | Padrão da indústria. Geralmente o mais rápido na prática para dados aleatórios. |
-| **Counting Sort** | $O(n+k)$ | $O(n+k)$ | $O(n+k)$ | $O(k)$ | Para inteiros positivos com um intervalo ($k$) pequeno e conhecido. |
-| **Radix Sort** | $O(nk)$ | $O(nk)$ | $O(nk)$ | $O(n+k)$ | Ordenação de números inteiros grandes ou strings, processando dígito a dígito. |
+**Exemplo:**
+Imagine que você tem uma lista de alunos ordenada alfabeticamente e quer reordená-la por nota.
+* **Estável:** Se dois alunos tiverem a mesma nota, o algoritmo manterá a ordem alfabética (ordem original) entre eles.
+* **Instável:** A ordem entre os alunos com a mesma nota pode ser alterada aleatoriamente.
+
+Isso é crucial quando aplicamos múltiplas ordenações sequenciais em um mesmo conjunto de dados.
+
+---
+
+## 📊 Comparativo de Complexidade e Estabilidade
+
+Abaixo, uma tabela detalhada comparando o desempenho, custo de memória e propriedades de cada algoritmo.
+
+| Algoritmo | Melhor Caso | Médio | Pior Caso | Memória | Estabilidade | Quando Utilizar? |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| **Selection Sort** | $O(n^2)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | ❌ Instável | Memória limitada e custo de *swap* alto. |
+| **Insertion Sort** | $O(n)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | ✅ Estável | Arrays pequenos ou **quase ordenados**. |
+| **Bubble Sort** | $O(n)$ | $O(n^2)$ | $O(n^2)$ | $O(1)$ | ✅ Estável | Fins didáticos. |
+| **Merge Sort** | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ | $O(n)$ | ✅ Estável | Grandes volumes e necessidade de estabilidade. |
+| **Heap Sort** | $O(n \log n)$ | $O(n \log n)$ | $O(n \log n)$ | $O(1)$ | ❌ Instável | Performance $O(n \log n)$ com memória constante. |
+| **Quick Sort** | $O(n \log n)$ | $O(n \log n)$ | $O(n^2)$ | $O(\log n)$ | ❌ Instável | Padrão da indústria. Rápido para dados aleatórios. |
+| **Counting Sort** | $O(n+k)$ | $O(n+k)$ | $O(n+k)$ | $O(k)$ | ✅ Estável | Inteiros positivos com intervalo pequeno. |
+| **Radix Sort** | $O(nk)$ | $O(nk)$ | $O(nk)$ | $O(n+k)$ | ✅ Estável | Inteiros grandes ou strings. |
 
 > **Legenda:** $n$ = número de elementos, $k$ = range (intervalo) dos valores.
 
@@ -38,29 +52,29 @@ Abaixo, uma tabela detalhada comparando o desempenho de tempo e o custo de memó
 
 ## 🚀 Algoritmos Implementados
 
-### 1. Selection Sort
-Seleciona repetidamente o menor elemento da parte não ordenada e o coloca no início. Simples, mas ineficiente para grandes listas.
+### 1. Selection Sort (Instável)
+Seleciona o menor elemento e o troca com a posição atual. Como faz trocas de longa distância, perde a estabilidade.
 
-### 2. Insertion Sort
-Constrói a lista ordenada um item de cada vez. É adaptativo: muito rápido se a lista já estiver parcialmente ordenada.
+### 2. Insertion Sort (Estável)
+Constrói a lista ordenada inserindo itens na posição correta. Mantém a ordem de elementos iguais, pois só troca se for estritamente menor.
 
-### 3. Bubble Sort
-Percorre a lista repetidamente, trocando elementos adjacentes se estiverem na ordem errada. Inclui otimização com flag para parar se a lista já estiver ordenada.
+### 3. Bubble Sort (Estável)
+Troca apenas elementos adjacentes e somente se a ordem estiver errada, preservando a estabilidade de valores iguais.
 
-### 4. Merge Sort
-Algoritmo "Dividir para Conquistar". Divide a lista recursivamente e depois mescla (merge) as sublistas de forma ordenada. É robusto e estável.
+### 4. Merge Sort (Estável)
+Na etapa de *merge* (intercalação), se houver elementos iguais, o algoritmo prioriza o elemento que veio da sublista da esquerda (original), mantendo a estabilidade.
 
-### 5. Heap Sort
-Utiliza uma estrutura de dados **Binary Heap** (árvore binária) para criar uma fila de prioridade. Eficiente em memória pois ordena no próprio array.
+### 5. Heap Sort (Instável)
+A estrutura de *Heap* (árvore) move elementos para posições distantes para satisfazer a propriedade da heap, destruindo a ordem relativa original.
 
-### 6. Quick Sort
-Também usa "Dividir para Conquistar". Escolhe um elemento "pivô" e particiona o array ao redor dele. Extremamente rápido no caso médio.
+### 6. Quick Sort (Instável)
+O processo de particionamento envolve trocas complexas ao redor do pivô, o que geralmente altera a ordem relativa de elementos iguais.
 
-### 7. Counting Sort
-Algoritmo não comparativo. Conta a frequência de cada elemento e usa essa informação para posicioná-los diretamente na ordem correta.
+### 7. Counting Sort (Estável)
+Ao preencher o array final, percorremos o array original de trás para frente (ou usamos lógica de contagem acumulada), o que garante a estabilidade.
 
-### 8. Radix Sort
-Ordena inteiros processando dígitos individuais. As chaves são processadas por agrupamento de dígitos que compartilham a mesma posição significativa.
+### 8. Radix Sort (Estável)
+Funciona processando dígito a dígito (do menos para o mais significativo). Para funcionar corretamente, ele **exige** que o algoritmo usado internamente (neste caso, Counting Sort) seja estável.
 
 ---
 
@@ -76,7 +90,7 @@ Ordena inteiros processando dígitos individuais. As chaves são processadas por
 ## 💻 Como Compilar e Rodar
 
 ### Pré-requisitos
-Você precisará de um compilador C, como o **GCC** ou  utlizar uma IDE.
+Você precisará de um compilador C, como o **GCC** ou utlizar uma IDE.
 
 ### 🛠️ Opção 1: Utilizando IDEs
 
