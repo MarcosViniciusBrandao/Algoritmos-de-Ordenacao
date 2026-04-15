@@ -160,5 +160,5 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ---
 
 <p align="center">
-  Feito com 💙 por <a href="https://github.com/MarcosViniciusBrandao">Marcos Vinicius</a>
+  Feito com 💙 por <a href="https://marcosviniciusbrandao.com.br/">Marcos Vinicius</a>
 </p>
